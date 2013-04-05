@@ -5,5 +5,7 @@ Entrega 1 Felipe Balart  Proyecto IIC2322 - Construccion de Compiladores - 2013-
 
 Referencias: 
 
-Ejemplo Ayudantía 1 - Joaquin Jaramillo
-jFlex User's Manual - http://jflex.de/manual.html
+Ejemplo Ayudantía 1 - Joaquin Jaramillo;     
+
+
+jFlex User's Manual - http://jflex.de/manual.html;
