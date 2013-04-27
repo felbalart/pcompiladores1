@@ -1,0 +1,17 @@
+matrix
+    vector
+        int 1
+    vector
+        int 45
+    vector
+        call sin
+            int 15
+    vector
+        int 3
+        int 43
+        sum
+            int 5
+            call exp
+                call cos
+                    call atan
+                        id pi

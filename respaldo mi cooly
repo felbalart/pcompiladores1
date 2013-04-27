@@ -1,0 +1,198 @@
+%{
+package coolc.parser;
+import coolc.ast.*;
+
+%}
+
+%output  "coolc/parser/Parser.java"
+%language "Java"
+
+
+%define parser_class_name "Parser"
+%define public
+
+%code {
+
+    private AstNode root;
+    public AstNode getRoot() {
+        return root;
+    }
+
+
+    public static String getTokenName(int t) {
+        return yytname_[t-255];
+    }
+
+}
+
+
+%token 		LOOP "loop"
+%token 		NOT
+%token 		CLASS
+%token 		ELSE
+%token 		WHILE
+%token 		POOL
+%token 		THEN
+%token 		FI
+%token 		IF
+%token 		CASE
+%token 		IN
+%token 		ESAC
+%token 		INHERITS
+%token 		ISVOID
+%token 		NEW
+%token 		OF
+%token 		LET
+%token 		BOOL
+%token 		TYPE
+%token		ID
+%token 		INT
+%token 		EQUALS "="
+%token 		PLUS "+"
+%token 		TIMES "*"
+%token 		MINUS "-"
+%token 		SLASH "/"
+%token 		LESSOREQUAL "<="
+%token 		LESS "<"
+%token 		ATSIGN "@"
+%token 		TILDE "~"
+%token 		QUEST "?"
+%token 		EXCLAM "!"
+%token 		LPARENT "("
+%token 		RPARENT ")"
+%token 		LSQUARE "["
+%token 		RSQUARE "]"
+%token 		LCURLY "{"
+%token 		RCURLY "}"
+%token 		SEMICOL ";"
+%token 		COLON ":"
+%token 		COMMA ","
+%token 		ERROR
+%token 		STRING
+%token 		DOT "."
+%token 		FARROW "=>"
+%token 		BARROW "<-"
+
+
+
+
+
+
+%define stype "AstNode"
+
+%type <AstNode> clase program class_list
+
+%%
+
+program
+	: class_list {/* $$ = new AstNode("joshn"); */}
+	| ID NOT IF	{/* $$ = new AstNode("PETER");*/}
+	| BOOL ";" { /*$$ = new AstNode("emanuuelsson");*/}
+	;
+	
+	
+class_list
+	: clase { /*$$ = new AstNode("MANOLETE", 11, 22); */}
+	| class_list clase
+	;
+	
+clase
+	: CLASS TYPE INHERITS TYPE "{" feature_list "}"
+	| CLASS TYPE "{" feature_list "}"
+	;
+	
+feature_list
+	: /*empty*/
+	|feature_list_not_empty
+	;
+	
+feature_list_not_empty
+	: feature
+	| feature_list_not_empty ";" feature
+	;
+
+feature
+	: ID "(" formal_list ")" ":" TYPE "{" expr "}"
+	| ID ":" TYPE BARROW expr
+	| ID ":" TYPE
+	;
+		
+	
+formal_list
+	: /*empty*/
+	| formal_list_not_empty
+	;
+
+formal_list_not_empty
+	: formal
+	| formal_list_not_empty "," formal
+	;
+	
+formal
+	: ID ":" TYPE
+	;
+	
+expr_list
+	:/*empty*/
+	|expr_list_not_empty
+	;
+
+expr_list_not_empty
+	:expr
+	|expr_list_not_empty "," expr
+	
+expr_semicol_list
+	: expr ";"
+	| expr_semicol_list expr ";"
+	;
+	
+id_type_expr_list
+	: /*empty*/
+	| id_type_barrow_expr_list_not_empty
+	;
+
+id_type_barrow_expr_list_not_empty
+	: "," ID ":" TYPE "<-" expr
+	| "," ID ":" TYPE
+	| id_type_barrow_expr_list_not_empty "," ID ":" TYPE "<-" expr 
+	| id_type_barrow_expr_list_not_empty "," ID ":" TYPE
+	;
+	
+id_type_farrow_list
+	: ID ":" TYPE "=>" expr ";"
+	| id_type_farrow_list ID ":" TYPE "=>" expr ";"
+	;
+	
+	 
+expr
+	: ID "<-" expr //con BARROW
+	| expr "@" TYPE "."  expr_list
+	| expr "."  expr_list
+	| ID "(" expr_list ")"
+	| IF expr THEN expr ELSE expr FI
+	| WHILE expr LOOP expr POOL
+	| "{" expr_semicol_list "}"
+	| LET ID ":" TYPE "<-" expr id_type_expr_list IN expr
+	| LET ID ":" TYPE id_type_expr_list IN expr
+	| CASE expr OF id_type_farrow_list ESAC
+	| NEW TYPE
+	| ISVOID expr
+	| expr "+" expr
+	| expr "-" expr
+	| expr "*" expr
+	| expr "/" expr
+	| expr
+	| expr "<" expr
+	| expr "<=" expr
+	| expr "=" expr
+	| NOT expr
+	| "(" expr ")"
+	| ID
+	| INT
+	| STRING
+	| BOOL
+	;
+	
+	
+
+%%

@@ -1,0 +1,9 @@
+binary + es papa de int 3, y sus 1 hermanos
+binary + es papa de int 4, y sus 1 hermanos
+binary < es papa de int 2, y sus 1 hermanos
+binary < es papa de binary +, y sus 1 hermanos
+binary <
+    int 2
+    binary +
+        int 3
+        int 4

@@ -1,0 +1,16 @@
+package coolc.ast;
+
+
+public class EmptyNode extends AstNode {
+
+    private Object value;
+    public Object getValue() {
+        return value;
+    }
+
+    public EmptyNode() {
+        super("");
+
+    }    
+
+}
