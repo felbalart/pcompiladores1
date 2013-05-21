@@ -1,0 +1,1227 @@
+ANALYZING symexs/atoi.cl
+class A2I : Object
+    fields
+    methods
+        Int c2i
+            arguments
+                String char
+            body
+        String i2c
+            arguments
+                Int i
+            body
+        Int a2i
+            arguments
+                String s
+            body
+        Int a2i_aux
+            arguments
+                String s
+            body
+                scope
+                    Int int
+                    scope
+                        Int j
+                        scope
+                            Int i
+        String i2a
+            arguments
+                Int i
+            body
+        String i2a_aux
+            arguments
+                Int i
+            body
+                scope
+                    Int next
+ANALYZING symexs/atoi_test.cl
+class Main : IO
+    fields
+    methods
+        Object newline
+            body
+        String prompt
+            body
+        Object main
+            body
+                scope
+                    A2I z
+                    scope
+                        String s
+                        scope
+                            Int i
+                            scope
+                                String news
+ANALYZING symexs/new_complex.cl
+class Main : IO
+    fields
+    methods
+        SELF_TYPE main
+            body
+                scope
+                    Complex c
+class Complex : IO
+    fields
+        Int x
+        Int y
+    methods
+        Complex init
+            arguments
+                Int a
+                Int b
+            body
+        Object print
+            body
+        Complex reflect_0
+            body
+        Complex reflect_X
+            body
+        Complex reflect_Y
+            body
+        Bool equal
+            arguments
+                Complex d
+            body
+        Int x_value
+            body
+        Int y_value
+            body
+ANALYZING symexs/graph.cl
+class Graph : Object
+    fields
+        VList vertices
+        EList edges
+    methods
+        Object add_vertice
+            arguments
+                Vertice v
+            body
+        Object print_E
+            body
+        Object print_V
+            body
+class Vertice : IO
+    fields
+        Int num
+        EList out
+    methods
+        EList outgoing
+            body
+        Int number
+            body
+        SELF_TYPE init
+            arguments
+                Int n
+            body
+        SELF_TYPE add_out
+            arguments
+                Edge s
+            body
+        Object print
+            body
+class Edge : IO
+    fields
+        Int from
+        Int to
+        Int weight
+    methods
+        SELF_TYPE init
+            arguments
+                Int f
+                Int t
+                Int w
+            body
+        Object print
+            body
+class EList : IO
+    fields
+        Edge car
+    methods
+        Bool isNil
+            body
+        Edge head
+            body
+        EList tail
+            body
+        EList cons
+            arguments
+                Edge e
+            body
+        EList append
+            arguments
+                EList l
+            body
+        Object print
+            body
+class ECons : EList
+    fields
+        EList cdr
+    methods
+        Bool isNil
+            body
+        Edge head
+            body
+        EList tail
+            body
+        EList init
+            arguments
+                Edge e
+                EList rest
+            body
+        Object print
+            body
+class VList : IO
+    fields
+        Vertice car
+    methods
+        Bool isNil
+            body
+        Vertice head
+            body
+        VList tail
+            body
+        VList cons
+            arguments
+                Vertice v
+            body
+        Object print
+            body
+class VCons : VList
+    fields
+        VList cdr
+    methods
+        Bool isNil
+            body
+        Vertice head
+            body
+        VList tail
+            body
+        VList init
+            arguments
+                Vertice v
+                VList rest
+            body
+        Object print
+            body
+class Parse : IO
+    fields
+        BoolOp boolop
+    methods
+        Graph read_input
+            body
+                scope
+                    Graph g
+                    scope
+                        String line
+        Vertice parse_line
+            arguments
+                String s
+            body
+                scope
+                    Vertice v
+                    scope
+                        Int succ
+                        scope
+                            Int weight
+        Int c2i
+            arguments
+                String char
+            body
+        String rest
+        Int a2i
+            arguments
+                String s
+            body
+        Int a2i_aux
+            arguments
+                String s
+            body
+                scope
+                    Int int
+                    scope
+                        Int j
+                        scope
+                            Int i
+                            scope
+                                String c
+class Main : Parse
+    fields
+        Graph g
+    methods
+        Object main
+            body
+class BoolOp : Object
+    fields
+    methods
+        Bool and
+            arguments
+                Bool b1
+                Bool b2
+            body
+        Bool or
+            arguments
+                Bool b1
+                Bool b2
+            body
+ANALYZING symexs/arith.cl
+class A : Object
+    fields
+        Int var
+    methods
+        Int value
+            body
+        SELF_TYPE set_var
+            arguments
+                Int num
+            body
+        SELF_TYPE method1
+            arguments
+                Int num
+            body
+        B method2
+            arguments
+                Int num1
+                Int num2
+            body
+                scope
+                    Int x
+        C method3
+            arguments
+                Int num
+            body
+                scope
+                    Int x
+        D method4
+            arguments
+                Int num1
+                Int num2
+            body
+                scope
+                    Int x
+                scope
+                    Int x
+        E method5
+            arguments
+                Int num
+            body
+                scope
+                    Int x
+                    scope
+                        Int y
+class B : A
+    fields
+    methods
+        E method5
+            arguments
+                Int num
+            body
+                scope
+                    Int x
+class C : B
+    fields
+    methods
+        A method6
+            arguments
+                Int num
+            body
+                scope
+                    Int x
+        E method5
+            arguments
+                Int num
+            body
+                scope
+                    Int x
+class D : B
+    fields
+    methods
+        Bool method7
+            arguments
+                Int num
+            body
+                scope
+                    Int x
+class E : D
+    fields
+    methods
+        A method6
+            arguments
+                Int num
+            body
+                scope
+                    Int x
+class A2I : Object
+    fields
+    methods
+        Int c2i
+            arguments
+                String char
+            body
+        String i2c
+            arguments
+                Int i
+            body
+        Int a2i
+            arguments
+                String s
+            body
+        Int a2i_aux
+            arguments
+                String s
+            body
+                scope
+                    Int int
+                    scope
+                        Int j
+                        scope
+                            Int i
+        String i2a
+            arguments
+                Int i
+            body
+        String i2a_aux
+            arguments
+                Int i
+            body
+                scope
+                    Int next
+class Main : IO
+    fields
+        String char
+        A avar
+        A a_var
+        Bool flag
+    methods
+        String menu
+            body
+        String prompt
+            body
+        Int get_int
+            body
+                scope
+                    A2I z
+                    scope
+                        String s
+        Bool is_even
+            arguments
+                Int num
+            body
+                scope
+                    Int x
+        SELF_TYPE class_type
+            arguments
+                A var
+            body
+                scope
+                    A a
+                scope
+                    B b
+                scope
+                    C c
+                scope
+                    D d
+                scope
+                    E e
+                scope
+                    Object o
+        SELF_TYPE print
+            arguments
+                A var
+            body
+                scope
+                    A2I z
+        Object main
+            body
+                scope
+                    C c
+                scope
+                    A a
+                scope
+                    Object o
+                scope
+                    A x
+                    scope
+                        Int r
+                        scope
+                            A2I a
+ANALYZING symexs/hello_world.cl
+class Main : IO
+    fields
+    methods
+        SELF_TYPE main
+            body
+ANALYZING symexs/sort_list.cl
+class List : IO
+    fields
+    methods
+        Bool isNil
+            body
+        Cons cons
+            arguments
+                Int hd
+            body
+                scope
+                    Cons new_cell
+        Int car
+            body
+        List cdr
+            body
+        List rev
+            body
+        List sort
+            body
+        List insert
+            arguments
+                Int i
+            body
+        List rcons
+            arguments
+                Int i
+            body
+        Object print_list
+            body
+class Cons : List
+    fields
+        Int xcar
+        List xcdr
+    methods
+        Bool isNil
+            body
+        Cons init
+            arguments
+                Int hd
+                List tl
+            body
+        Int car
+            body
+        List cdr
+            body
+        List rev
+            body
+        List sort
+            body
+        List insert
+            arguments
+                Int i
+            body
+        List rcons
+            arguments
+                Int i
+            body
+        Object print_list
+            body
+class Nil : List
+    fields
+    methods
+        Bool isNil
+            body
+        List rev
+            body
+        List sort
+            body
+        List insert
+            arguments
+                Int i
+            body
+        List rcons
+            arguments
+                Int i
+            body
+        Object print_list
+            body
+class Main : IO
+    fields
+        List l
+    methods
+        List iota
+            arguments
+                Int i
+            body
+                scope
+                    Int j
+        Object main
+            body
+ANALYZING symexs/hairyscary.cl
+class Foo : Bazz
+    fields
+        Razz a
+        Int b
+    methods
+        Int doh
+            body
+                scope
+                    Int i
+class Bar : Razz
+    fields
+        Int c
+        Object d
+class Razz : Foo
+    fields
+        Bar e
+        Int f
+class Bazz : IO
+    fields
+        Int h
+        Foo g
+        Object i
+    methods
+        Int printh
+            body
+        Int doh
+            body
+                scope
+                    Int i
+class Main : Object
+    fields
+        Bazz a
+        Foo b
+        Razz c
+        Bar d
+    methods
+        String main
+            body
+ANALYZING symexs/lam.cl
+class VarList : IO
+    fields
+    methods
+        Bool isNil
+            body
+        Variable head
+            body
+        VarList tail
+            body
+        VarList add
+            arguments
+                Variable x
+            body
+        SELF_TYPE print
+            body
+class VarListNE : VarList
+    fields
+        Variable x
+        VarList rest
+    methods
+        Bool isNil
+            body
+        Variable head
+            body
+        VarList tail
+            body
+        VarListNE init
+            arguments
+                Variable y
+                VarList r
+            body
+        SELF_TYPE print
+            body
+class LambdaList : Object
+    fields
+    methods
+        Bool isNil
+            body
+        VarList headE
+            body
+        Lambda headC
+            body
+        Int headN
+            body
+        LambdaList tail
+            body
+        LambdaList add
+            arguments
+                VarList e
+                Lambda x
+                Int n
+            body
+class LambdaListNE : LambdaList
+    fields
+        Lambda lam
+        Int num
+        VarList env
+        LambdaList rest
+    methods
+        Bool isNil
+            body
+        VarList headE
+            body
+        Lambda headC
+            body
+        Int headN
+            body
+        LambdaList tail
+            body
+        LambdaListNE init
+            arguments
+                VarList e
+                Lambda l
+                Int n
+                LambdaList r
+            body
+class LambdaListRef : Object
+    fields
+        Int nextNum
+        LambdaList l
+    methods
+        Bool isNil
+            body
+        VarList headE
+            body
+        Lambda headC
+            body
+        Int headN
+            body
+        SELF_TYPE reset
+            body
+        Int add
+            arguments
+                VarList env
+                Lambda c
+            body
+        SELF_TYPE removeHead
+            body
+class Expr : IO
+    fields
+    methods
+        SELF_TYPE print_self
+            body
+        Expr beta
+            body
+        Expr substitute
+            arguments
+                Variable x
+                Expr e
+            body
+        SELF_TYPE gen_code
+            arguments
+                VarList env
+                LambdaListRef closures
+            body
+class Variable : Expr
+    fields
+        String name
+    methods
+        Variable init
+            arguments
+                String n
+            body
+        SELF_TYPE print_self
+            body
+        Expr beta
+            body
+        Expr substitute
+            arguments
+                Variable x
+                Expr e
+            body
+        SELF_TYPE gen_code
+            arguments
+                VarList env
+                LambdaListRef closures
+            body
+                scope
+                    VarList cur_env
+class Lambda : Expr
+    fields
+        Variable arg
+        Expr body
+    methods
+        Lambda init
+            arguments
+                Variable a
+                Expr b
+            body
+        SELF_TYPE print_self
+            body
+        Expr beta
+            body
+        Expr apply
+            arguments
+                Expr actual
+            body
+        Expr substitute
+            arguments
+                Variable x
+                Expr e
+            body
+                scope
+                    Expr new_body
+                    Lambda new_lam
+        SELF_TYPE gen_code
+            arguments
+                VarList env
+                LambdaListRef closures
+            body
+        SELF_TYPE gen_closure_code
+            arguments
+                Int n
+                VarList env
+                LambdaListRef closures
+            body
+class App : Expr
+    fields
+        Expr fun
+        Expr arg
+    methods
+        App init
+            arguments
+                Expr f
+                Expr a
+            body
+        SELF_TYPE print_self
+            body
+        Expr beta
+            body
+                scope
+                    Lambda l
+                scope
+                    Expr e
+                        scope
+                            Expr new_fun
+                            App new_app
+        Expr substitute
+            arguments
+                Variable x
+                Expr e
+            body
+                scope
+                    Expr new_fun
+                    Expr new_arg
+                    App new_app
+        SELF_TYPE gen_code
+            arguments
+                VarList env
+                LambdaListRef closures
+            body
+class Term : IO
+    fields
+    methods
+        Variable var
+            arguments
+                String x
+            body
+                scope
+                    Variable v
+        Lambda lam
+            arguments
+                Variable x
+                Expr e
+            body
+                scope
+                    Lambda l
+        App app
+            arguments
+                Expr e1
+                Expr e2
+            body
+                scope
+                    App a
+        Expr i
+            body
+                scope
+                    Variable x
+        Expr k
+            body
+                scope
+                    Variable x
+                    Variable y
+        Expr s
+            body
+                scope
+                    Variable x
+                    Variable y
+                    Variable z
+class Main : Term
+    fields
+    methods
+        Expr beta_reduce
+            arguments
+                Expr e
+            body
+                scope
+                    Bool done
+                    Expr new_expr
+        SELF_TYPE eval_class
+            body
+        SELF_TYPE closure_class
+            body
+        SELF_TYPE gen_code
+            arguments
+                Expr e
+            body
+                scope
+                    LambdaListRef cl
+                    scope
+                        VarList e
+                        Lambda c
+                        Int n
+        Int main
+            body
+ANALYZING symexs/cool.cl
+class Main : IO
+    fields
+    methods
+        SELF_TYPE main
+            body
+ANALYZING symexs/palindrome.cl
+class Main : IO
+    fields
+    methods
+        Bool pal
+            arguments
+                String s
+            body
+        Int i
+        SELF_TYPE main
+            body
+ANALYZING symexs/book_list.cl
+class Book : IO
+    fields
+        String title
+        String author
+    methods
+        Book initBook
+            arguments
+                String title_p
+                String author_p
+            body
+        Book print
+            body
+class Article : Book
+    fields
+        String per_title
+    methods
+        Article initArticle
+            arguments
+                String title_p
+                String author_p
+                String per_title_p
+            body
+        Book print
+            body
+class BookList : IO
+    fields
+    methods
+        Bool isNil
+            body
+        Cons cons
+            arguments
+                Book hd
+            body
+                scope
+                    Cons new_cell
+        Book car
+            body
+        BookList cdr
+            body
+        Object print_list
+            body
+class Cons : BookList
+    fields
+        Book xcar
+        BookList xcdr
+    methods
+        Bool isNil
+            body
+        Cons init
+            arguments
+                Book hd
+                BookList tl
+            body
+        Book car
+            body
+        BookList cdr
+            body
+        Object print_list
+            body
+                scope
+                    Book dummy
+                scope
+                    Article dummy
+class Nil : BookList
+    fields
+    methods
+        Bool isNil
+            body
+        Object print_list
+            body
+class Main : Object
+    fields
+        BookList books
+    methods
+        Object main
+            body
+                scope
+                    Book a_book
+                    scope
+                        Article an_article
+ANALYZING symexs/complex.cl
+class Main : IO
+    fields
+    methods
+        SELF_TYPE main
+            body
+                scope
+                    Complex c
+class Complex : IO
+    fields
+        Int x
+        Int y
+    methods
+        Complex init
+            arguments
+                Int a
+                Int b
+            body
+        Object print
+            body
+        Complex reflect_0
+            body
+        Complex reflect_X
+            body
+        Complex reflect_Y
+            body
+ANALYZING symexs/primes.cl
+class Main : IO
+    fields
+    methods
+        Int main
+            body
+        Int out
+        Int testee
+        Int divisor
+        Int stop
+        Object m
+ANALYZING symexs/arithS.cl
+class A : Object
+    fields
+        Int var
+    methods
+        Int value
+            body
+        E method5
+            arguments
+                Int num
+            body
+                scope
+                    Int x
+                    scope
+                        Int y
+ANALYZING symexs/list.cl
+class List : Object
+    fields
+    methods
+        Bool isNil
+            body
+        Int head
+            body
+        List tail
+            body
+        List cons
+            arguments
+                Int i
+            body
+class Cons : List
+    fields
+        Int car
+        List cdr
+    methods
+        Bool isNil
+            body
+        Int head
+            body
+        List tail
+            body
+        List init
+            arguments
+                Int i
+                List rest
+            body
+class Main : IO
+    fields
+        List mylist
+    methods
+        Object print_list
+            arguments
+                List l
+            body
+        Object main
+            body
+ANALYZING symexs/io.cl
+class A : Object
+    fields
+        IO io
+    methods
+        Object out_a
+            body
+class B : A
+    fields
+    methods
+        Object out_b
+            body
+class C : IO
+    fields
+    methods
+        Object out_c
+            body
+class D : C
+    fields
+    methods
+        Object out_d
+            body
+class Main : IO
+    fields
+    methods
+        Object main
+            body
+ANALYZING symexs/cells.cl
+class CellularAutomaton : IO
+    fields
+        String population_map
+    methods
+        SELF_TYPE init
+            arguments
+                String map
+            body
+        SELF_TYPE print
+            body
+        Int num_cells
+            body
+        String cell
+            arguments
+                Int position
+            body
+        String cell_left_neighbor
+            arguments
+                Int position
+            body
+        String cell_right_neighbor
+            arguments
+                Int position
+            body
+        String cell_at_next_evolution
+            arguments
+                Int position
+            body
+        SELF_TYPE evolve
+            body
+                scope
+                    Int position
+                    scope
+                        Int num
+                        scope
+                            String temp
+class Main : Object
+    fields
+        CellularAutomaton cells
+    methods
+        SELF_TYPE main
+            body
+                scope
+                    Int countdown
+ANALYZING symexs/life.cl
+class Board : IO
+    fields
+        Int rows
+        Int columns
+        Int board_size
+    methods
+        Int size_of_board
+            arguments
+                String initial
+            body
+        SELF_TYPE board_init
+            arguments
+                String start
+            body
+                scope
+                    Int size
+class CellularAutomaton : Board
+    fields
+        String population_map
+    methods
+        SELF_TYPE init
+            arguments
+                String map
+            body
+        SELF_TYPE print
+            body
+                scope
+                    Int i
+                    scope
+                        Int num
+        Int num_cells
+            body
+        String cell
+            arguments
+                Int position
+            body
+        String north
+            arguments
+                Int position
+            body
+        String south
+            arguments
+                Int position
+            body
+        String east
+            arguments
+                Int position
+            body
+        String west
+            arguments
+                Int position
+            body
+        String northwest
+            arguments
+                Int position
+            body
+        String northeast
+            arguments
+                Int position
+            body
+        String southeast
+            arguments
+                Int position
+            body
+        String southwest
+            arguments
+                Int position
+            body
+        Int neighbors
+            arguments
+                Int position
+            body
+        String cell_at_next_evolution
+            arguments
+                Int position
+            body
+        SELF_TYPE evolve
+            body
+                scope
+                    Int position
+                    scope
+                        Int num
+                        scope
+                            String temp
+        String option
+            body
+                scope
+                    Int num
+        Bool prompt
+            body
+                scope
+                    String ans
+        Bool prompt2
+            body
+                scope
+                    String ans
+class Main : CellularAutomaton
+    fields
+        CellularAutomaton cells
+    methods
+        SELF_TYPE main
+            body
+                scope
+                    Bool continue
+                    scope
+                        String choice
