@@ -1,0 +1,838 @@
+program
+    class Board : IO
+        field Int rows
+        field Int columns
+        field Int board_size
+        method size_of_board : String initial -> Int
+            call length
+                callee
+                    id initial [ERROR:'initial'NotFound]
+        method board_init : String start -> SELF_TYPE
+            let [ObjectXXX]
+                vars
+                    Int size
+                        call size_of_board
+                            args
+                                id start [ERROR:'start'NotFound]
+                block [ObjectXXX]
+                    if [ObjectXXX]
+                        binary = ObjectXXX
+                            id size [ERROR:'size'NotFound]
+                            int 15 [Int]
+                    then
+                        block [ObjectXXX]
+                            assign rows [ERROR:'rows'NotFound]
+                                int 3 [Int]
+                            assign columns [ERROR:'columns'NotFound]
+                                int 5 [Int]
+                            assign board_size [ERROR:'board_size'NotFound]
+                                id size [ERROR:'size'NotFound]
+                    else
+                        if [ObjectXXX]
+                            binary = ObjectXXX
+                                id size [ERROR:'size'NotFound]
+                                int 16 [Int]
+                        then
+                            block [ObjectXXX]
+                                assign rows [ERROR:'rows'NotFound]
+                                    int 4 [Int]
+                                assign columns [ERROR:'columns'NotFound]
+                                    int 4 [Int]
+                                assign board_size [ERROR:'board_size'NotFound]
+                                    id size [ERROR:'size'NotFound]
+                        else
+                            if [ObjectXXX]
+                                binary = ObjectXXX
+                                    id size [ERROR:'size'NotFound]
+                                    int 20 [Int]
+                            then
+                                block [ObjectXXX]
+                                    assign rows [ERROR:'rows'NotFound]
+                                        int 4 [Int]
+                                    assign columns [ERROR:'columns'NotFound]
+                                        int 5 [Int]
+                                    assign board_size [ERROR:'board_size'NotFound]
+                                        id size [ERROR:'size'NotFound]
+                            else
+                                if [ObjectXXX]
+                                    binary = ObjectXXX
+                                        id size [ERROR:'size'NotFound]
+                                        int 21 [Int]
+                                then
+                                    block [ObjectXXX]
+                                        assign rows [ERROR:'rows'NotFound]
+                                            int 3 [Int]
+                                        assign columns [ERROR:'columns'NotFound]
+                                            int 7 [Int]
+                                        assign board_size [ERROR:'board_size'NotFound]
+                                            id size [ERROR:'size'NotFound]
+                                else
+                                    if [ObjectXXX]
+                                        binary = ObjectXXX
+                                            id size [ERROR:'size'NotFound]
+                                            int 25 [Int]
+                                    then
+                                        block [ObjectXXX]
+                                            assign rows [ERROR:'rows'NotFound]
+                                                int 5 [Int]
+                                            assign columns [ERROR:'columns'NotFound]
+                                                int 5 [Int]
+                                            assign board_size [ERROR:'board_size'NotFound]
+                                                id size [ERROR:'size'NotFound]
+                                    else
+                                        if [ObjectXXX]
+                                            binary = ObjectXXX
+                                                id size [ERROR:'size'NotFound]
+                                                int 28 [Int]
+                                        then
+                                            block [ObjectXXX]
+                                                assign rows [ERROR:'rows'NotFound]
+                                                    int 7 [Int]
+                                                assign columns [ERROR:'columns'NotFound]
+                                                    int 4 [Int]
+                                                assign board_size [ERROR:'board_size'NotFound]
+                                                    id size [ERROR:'size'NotFound]
+                                        else
+                                            block [ObjectXXX]
+                                                assign rows [ERROR:'rows'NotFound]
+                                                    int 5 [Int]
+                                                assign columns [ERROR:'columns'NotFound]
+                                                    int 5 [Int]
+                                                assign board_size [ERROR:'board_size'NotFound]
+                                                    id size [ERROR:'size'NotFound]
+                    id self [ERROR:'self'NotFound]
+    class CellularAutomaton : Board
+        field String population_map
+        method init : String map -> SELF_TYPE
+            block [ObjectXXX]
+                assign population_map [ERROR:'population_map'NotFound]
+                    id map [ERROR:'map'NotFound]
+                call board_init
+                    args
+                        id map [ERROR:'map'NotFound]
+                id self [ERROR:'self'NotFound]
+        method print : SELF_TYPE
+            let [ObjectXXX]
+                vars
+                    Int i
+                        int 0 [Int]
+                let [ObjectXXX]
+                    vars
+                        Int num
+                            id board_size [ERROR:'board_size'NotFound]
+                    block [ObjectXXX]
+                        call out_string
+                            args
+                                str "\n" [String]
+                        while [Object]
+                            binary < ObjectXXX
+                                id i [ERROR:'i'NotFound]
+                                id num [ERROR:'num'NotFound]
+                        loop
+                            block [ObjectXXX]
+                                call out_string
+                                    args
+                                        call substr
+                                            callee
+                                                id population_map [ERROR:'population_map'NotFound]
+                                            args
+                                                id i [ERROR:'i'NotFound]
+                                                id columns [ERROR:'columns'NotFound]
+                                call out_string
+                                    args
+                                        str "\n" [String]
+                                assign i [ERROR:'i'NotFound]
+                                    binary + ObjectXXX
+                                        id i [ERROR:'i'NotFound]
+                                        id columns [ERROR:'columns'NotFound]
+                        call out_string
+                            args
+                                str "\n" [String]
+                        id self [ERROR:'self'NotFound]
+        method num_cells : Int
+            call length
+                callee
+                    id population_map [ERROR:'population_map'NotFound]
+        method cell : Int position -> String
+            if [String]
+                binary < ObjectXXX
+                    binary - ObjectXXX
+                        id board_size [ERROR:'board_size'NotFound]
+                        int 1 [Int]
+                    id position [ERROR:'position'NotFound]
+            then
+                str " " [String]
+            else
+                call substr
+                    callee
+                        id population_map [ERROR:'population_map'NotFound]
+                    args
+                        id position [ERROR:'position'NotFound]
+                        int 1 [Int]
+        method north : Int position -> String
+            if [String]
+                binary < ObjectXXX
+                    binary - ObjectXXX
+                        id position [ERROR:'position'NotFound]
+                        id columns [ERROR:'columns'NotFound]
+                    int 0 [Int]
+            then
+                str " " [String]
+            else
+                call cell
+                    args
+                        binary - ObjectXXX
+                            id position [ERROR:'position'NotFound]
+                            id columns [ERROR:'columns'NotFound]
+        method south : Int position -> String
+            if [String]
+                binary < ObjectXXX
+                    id board_size [ERROR:'board_size'NotFound]
+                    binary + ObjectXXX
+                        id position [ERROR:'position'NotFound]
+                        id columns [ERROR:'columns'NotFound]
+            then
+                str " " [String]
+            else
+                call cell
+                    args
+                        binary + ObjectXXX
+                            id position [ERROR:'position'NotFound]
+                            id columns [ERROR:'columns'NotFound]
+        method east : Int position -> String
+            if [String]
+                binary = ObjectXXX
+                    binary * ObjectXXX
+                        binary / ObjectXXX
+                            binary + ObjectXXX
+                                id position [ERROR:'position'NotFound]
+                                int 1 [Int]
+                            id columns [ERROR:'columns'NotFound]
+                        id columns [ERROR:'columns'NotFound]
+                    binary + ObjectXXX
+                        id position [ERROR:'position'NotFound]
+                        int 1 [Int]
+            then
+                str " " [String]
+            else
+                call cell
+                    args
+                        binary + ObjectXXX
+                            id position [ERROR:'position'NotFound]
+                            int 1 [Int]
+        method west : Int position -> String
+            if [String]
+                binary = ObjectXXX
+                    id position [ERROR:'position'NotFound]
+                    int 0 [Int]
+            then
+                str " " [String]
+            else
+                if [String]
+                    binary = ObjectXXX
+                        binary * ObjectXXX
+                            binary / ObjectXXX
+                                id position [ERROR:'position'NotFound]
+                                id columns [ERROR:'columns'NotFound]
+                            id columns [ERROR:'columns'NotFound]
+                        id position [ERROR:'position'NotFound]
+                then
+                    str " " [String]
+                else
+                    call cell
+                        args
+                            binary - ObjectXXX
+                                id position [ERROR:'position'NotFound]
+                                int 1 [Int]
+        method northwest : Int position -> String
+            if [String]
+                binary < ObjectXXX
+                    binary - ObjectXXX
+                        id position [ERROR:'position'NotFound]
+                        id columns [ERROR:'columns'NotFound]
+                    int 0 [Int]
+            then
+                str " " [String]
+            else
+                if [String]
+                    binary = ObjectXXX
+                        binary * ObjectXXX
+                            binary / ObjectXXX
+                                id position [ERROR:'position'NotFound]
+                                id columns [ERROR:'columns'NotFound]
+                            id columns [ERROR:'columns'NotFound]
+                        id position [ERROR:'position'NotFound]
+                then
+                    str " " [String]
+                else
+                    call north
+                        args
+                            binary - ObjectXXX
+                                id position [ERROR:'position'NotFound]
+                                int 1 [Int]
+        method northeast : Int position -> String
+            if [String]
+                binary < ObjectXXX
+                    binary - ObjectXXX
+                        id position [ERROR:'position'NotFound]
+                        id columns [ERROR:'columns'NotFound]
+                    int 0 [Int]
+            then
+                str " " [String]
+            else
+                if [String]
+                    binary = ObjectXXX
+                        binary * ObjectXXX
+                            binary / ObjectXXX
+                                binary + ObjectXXX
+                                    id position [ERROR:'position'NotFound]
+                                    int 1 [Int]
+                                id columns [ERROR:'columns'NotFound]
+                            id columns [ERROR:'columns'NotFound]
+                        binary + ObjectXXX
+                            id position [ERROR:'position'NotFound]
+                            int 1 [Int]
+                then
+                    str " " [String]
+                else
+                    call north
+                        args
+                            binary + ObjectXXX
+                                id position [ERROR:'position'NotFound]
+                                int 1 [Int]
+        method southeast : Int position -> String
+            if [String]
+                binary < ObjectXXX
+                    id board_size [ERROR:'board_size'NotFound]
+                    binary + ObjectXXX
+                        id position [ERROR:'position'NotFound]
+                        id columns [ERROR:'columns'NotFound]
+            then
+                str " " [String]
+            else
+                if [String]
+                    binary = ObjectXXX
+                        binary * ObjectXXX
+                            binary / ObjectXXX
+                                binary + ObjectXXX
+                                    id position [ERROR:'position'NotFound]
+                                    int 1 [Int]
+                                id columns [ERROR:'columns'NotFound]
+                            id columns [ERROR:'columns'NotFound]
+                        binary + ObjectXXX
+                            id position [ERROR:'position'NotFound]
+                            int 1 [Int]
+                then
+                    str " " [String]
+                else
+                    call south
+                        args
+                            binary + ObjectXXX
+                                id position [ERROR:'position'NotFound]
+                                int 1 [Int]
+        method southwest : Int position -> String
+            if [String]
+                binary < ObjectXXX
+                    id board_size [ERROR:'board_size'NotFound]
+                    binary + ObjectXXX
+                        id position [ERROR:'position'NotFound]
+                        id columns [ERROR:'columns'NotFound]
+            then
+                str " " [String]
+            else
+                if [String]
+                    binary = ObjectXXX
+                        binary * ObjectXXX
+                            binary / ObjectXXX
+                                id position [ERROR:'position'NotFound]
+                                id columns [ERROR:'columns'NotFound]
+                            id columns [ERROR:'columns'NotFound]
+                        id position [ERROR:'position'NotFound]
+                then
+                    str " " [String]
+                else
+                    call south
+                        args
+                            binary - ObjectXXX
+                                id position [ERROR:'position'NotFound]
+                                int 1 [Int]
+        method neighbors : Int position -> Int
+            block [ObjectXXX]
+                binary + Int
+                    binary + Int
+                        binary + Int
+                            binary + Int
+                                binary + Int
+                                    binary + Int
+                                        binary + Int
+                                            if [Int]
+                                                binary = null
+                                                    call north
+                                                        args
+                                                            id position [ERROR:'position'NotFound]
+                                                    str "X" [String]
+                                            then
+                                                int 1 [Int]
+                                            else
+                                                int 0 [Int]
+                                            if [Int]
+                                                binary = null
+                                                    call south
+                                                        args
+                                                            id position [ERROR:'position'NotFound]
+                                                    str "X" [String]
+                                            then
+                                                int 1 [Int]
+                                            else
+                                                int 0 [Int]
+                                        if [Int]
+                                            binary = null
+                                                call east
+                                                    args
+                                                        id position [ERROR:'position'NotFound]
+                                                str "X" [String]
+                                        then
+                                            int 1 [Int]
+                                        else
+                                            int 0 [Int]
+                                    if [Int]
+                                        binary = null
+                                            call west
+                                                args
+                                                    id position [ERROR:'position'NotFound]
+                                            str "X" [String]
+                                    then
+                                        int 1 [Int]
+                                    else
+                                        int 0 [Int]
+                                if [Int]
+                                    binary = null
+                                        call northeast
+                                            args
+                                                id position [ERROR:'position'NotFound]
+                                        str "X" [String]
+                                then
+                                    int 1 [Int]
+                                else
+                                    int 0 [Int]
+                            if [Int]
+                                binary = null
+                                    call northwest
+                                        args
+                                            id position [ERROR:'position'NotFound]
+                                    str "X" [String]
+                            then
+                                int 1 [Int]
+                            else
+                                int 0 [Int]
+                        if [Int]
+                            binary = null
+                                call southeast
+                                    args
+                                        id position [ERROR:'position'NotFound]
+                                str "X" [String]
+                        then
+                            int 1 [Int]
+                        else
+                            int 0 [Int]
+                    if [Int]
+                        binary = null
+                            call southwest
+                                args
+                                    id position [ERROR:'position'NotFound]
+                            str "X" [String]
+                    then
+                        int 1 [Int]
+                    else
+                        int 0 [Int]
+        method cell_at_next_evolution : Int position -> String
+            if [String]
+                binary = null
+                    call neighbors
+                        args
+                            id position [ERROR:'position'NotFound]
+                    int 3 [Int]
+            then
+                str "X" [String]
+            else
+                if [String]
+                    binary = null
+                        call neighbors
+                            args
+                                id position [ERROR:'position'NotFound]
+                        int 2 [Int]
+                then
+                    if [String]
+                        binary = null
+                            call cell
+                                args
+                                    id position [ERROR:'position'NotFound]
+                            str "X" [String]
+                    then
+                        str "X" [String]
+                    else
+                        str "-" [String]
+                else
+                    str "-" [String]
+        method evolve : SELF_TYPE
+            let [ObjectXXX]
+                vars
+                    Int position
+                        int 0 [Int]
+                let [ObjectXXX]
+                    vars
+                        Int num
+                            call num_cells
+                    let [ObjectXXX]
+                        vars
+                            String temp
+                        block [ObjectXXX]
+                            while [Object]
+                                binary < ObjectXXX
+                                    id position [ERROR:'position'NotFound]
+                                    id num [ERROR:'num'NotFound]
+                            loop
+                                block [ObjectXXX]
+                                    assign temp [ERROR:'temp'NotFound]
+                                        call concat
+                                            callee
+                                                id temp [ERROR:'temp'NotFound]
+                                            args
+                                                call cell_at_next_evolution
+                                                    args
+                                                        id position [ERROR:'position'NotFound]
+                                    assign position [ERROR:'position'NotFound]
+                                        binary + ObjectXXX
+                                            id position [ERROR:'position'NotFound]
+                                            int 1 [Int]
+                            assign population_map [ERROR:'population_map'NotFound]
+                                id temp [ERROR:'temp'NotFound]
+                            id self [ERROR:'self'NotFound]
+        method option : String
+            block [ObjectXXX]
+                let [ObjectXXX]
+                    vars
+                        Int num
+                    block [ObjectXXX]
+                        call out_string
+                            args
+                                str "\nPlease chose a number:\n" [String]
+                        call out_string
+                            args
+                                str "\t1: A cross\n" [String]
+                        call out_string
+                            args
+                                str "\t2: A slash from the upper left to lower right\n" [String]
+                        call out_string
+                            args
+                                str "\t3: A slash from the upper right to lower left\n" [String]
+                        call out_string
+                            args
+                                str "\t4: An X\n" [String]
+                        call out_string
+                            args
+                                str "\t5: A greater than sign \n" [String]
+                        call out_string
+                            args
+                                str "\t6: A less than sign\n" [String]
+                        call out_string
+                            args
+                                str "\t7: Two greater than signs\n" [String]
+                        call out_string
+                            args
+                                str "\t8: Two less than signs\n" [String]
+                        call out_string
+                            args
+                                str "\t9: A 'V'\n" [String]
+                        call out_string
+                            args
+                                str "\t10: An inverse 'V'\n" [String]
+                        call out_string
+                            args
+                                str "\t11: Numbers 9 and 10 combined\n" [String]
+                        call out_string
+                            args
+                                str "\t12: A full grid\n" [String]
+                        call out_string
+                            args
+                                str "\t13: A 'T'\n" [String]
+                        call out_string
+                            args
+                                str "\t14: A plus '+'\n" [String]
+                        call out_string
+                            args
+                                str "\t15: A 'W'\n" [String]
+                        call out_string
+                            args
+                                str "\t16: An 'M'\n" [String]
+                        call out_string
+                            args
+                                str "\t17: An 'E'\n" [String]
+                        call out_string
+                            args
+                                str "\t18: A '3'\n" [String]
+                        call out_string
+                            args
+                                str "\t19: An 'O'\n" [String]
+                        call out_string
+                            args
+                                str "\t20: An '8'\n" [String]
+                        call out_string
+                            args
+                                str "\t21: An 'S'\n" [String]
+                        call out_string
+                            args
+                                str "Your choice => " [String]
+                        assign num [ERROR:'num'NotFound]
+                            call in_int
+                        call out_string
+                            args
+                                str "\n" [String]
+                        if [String]
+                            binary = ObjectXXX
+                                id num [ERROR:'num'NotFound]
+                                int 1 [Int]
+                        then
+                            str " XX  XXXX XXXX  XX  " [String]
+                        else
+                            if [String]
+                                binary = ObjectXXX
+                                    id num [ERROR:'num'NotFound]
+                                    int 2 [Int]
+                            then
+                                str "    X   X   X   X   X    " [String]
+                            else
+                                if [String]
+                                    binary = ObjectXXX
+                                        id num [ERROR:'num'NotFound]
+                                        int 3 [Int]
+                                then
+                                    str "X     X     X     X     X" [String]
+                                else
+                                    if [String]
+                                        binary = ObjectXXX
+                                            id num [ERROR:'num'NotFound]
+                                            int 4 [Int]
+                                    then
+                                        str "X   X X X   X   X X X   X" [String]
+                                    else
+                                        if [String]
+                                            binary = ObjectXXX
+                                                id num [ERROR:'num'NotFound]
+                                                int 5 [Int]
+                                        then
+                                            str "X     X     X   X   X    " [String]
+                                        else
+                                            if [String]
+                                                binary = ObjectXXX
+                                                    id num [ERROR:'num'NotFound]
+                                                    int 6 [Int]
+                                            then
+                                                str "    X   X   X     X     X" [String]
+                                            else
+                                                if [String]
+                                                    binary = ObjectXXX
+                                                        id num [ERROR:'num'NotFound]
+                                                        int 7 [Int]
+                                                then
+                                                    str "X  X  X  XX  X      " [String]
+                                                else
+                                                    if [String]
+                                                        binary = ObjectXXX
+                                                            id num [ERROR:'num'NotFound]
+                                                            int 8 [Int]
+                                                    then
+                                                        str " X  XX  X  X  X     " [String]
+                                                    else
+                                                        if [String]
+                                                            binary = ObjectXXX
+                                                                id num [ERROR:'num'NotFound]
+                                                                int 9 [Int]
+                                                        then
+                                                            str "X   X X X   X  " [String]
+                                                        else
+                                                            if [String]
+                                                                binary = ObjectXXX
+                                                                    id num [ERROR:'num'NotFound]
+                                                                    int 10 [Int]
+                                                            then
+                                                                str "  X   X X X   X" [String]
+                                                            else
+                                                                if [String]
+                                                                    binary = ObjectXXX
+                                                                        id num [ERROR:'num'NotFound]
+                                                                        int 11 [Int]
+                                                                then
+                                                                    str "X X X X X X X X" [String]
+                                                                else
+                                                                    if [String]
+                                                                        binary = ObjectXXX
+                                                                            id num [ERROR:'num'NotFound]
+                                                                            int 12 [Int]
+                                                                    then
+                                                                        str "XXXXXXXXXXXXXXXXXXXXXXXXX" [String]
+                                                                    else
+                                                                        if [String]
+                                                                            binary = ObjectXXX
+                                                                                id num [ERROR:'num'NotFound]
+                                                                                int 13 [Int]
+                                                                        then
+                                                                            str "XXXXX  X    X    X    X  " [String]
+                                                                        else
+                                                                            if [String]
+                                                                                binary = ObjectXXX
+                                                                                    id num [ERROR:'num'NotFound]
+                                                                                    int 14 [Int]
+                                                                            then
+                                                                                str "  X    X  XXXXX  X    X  " [String]
+                                                                            else
+                                                                                if [String]
+                                                                                    binary = ObjectXXX
+                                                                                        id num [ERROR:'num'NotFound]
+                                                                                        int 15 [Int]
+                                                                                then
+                                                                                    str "X     X X X X   X X  " [String]
+                                                                                else
+                                                                                    if [String]
+                                                                                        binary = ObjectXXX
+                                                                                            id num [ERROR:'num'NotFound]
+                                                                                            int 16 [Int]
+                                                                                    then
+                                                                                        str "  X X   X X X X     X" [String]
+                                                                                    else
+                                                                                        if [String]
+                                                                                            binary = ObjectXXX
+                                                                                                id num [ERROR:'num'NotFound]
+                                                                                                int 17 [Int]
+                                                                                        then
+                                                                                            str "XXXXX   X   XXXXX   X   XXXX" [String]
+                                                                                        else
+                                                                                            if [String]
+                                                                                                binary = ObjectXXX
+                                                                                                    id num [ERROR:'num'NotFound]
+                                                                                                    int 18 [Int]
+                                                                                            then
+                                                                                                str "XXX    X   X  X    X   XXXX " [String]
+                                                                                            else
+                                                                                                if [String]
+                                                                                                    binary = ObjectXXX
+                                                                                                        id num [ERROR:'num'NotFound]
+                                                                                                        int 19 [Int]
+                                                                                                then
+                                                                                                    str " XX X  XX  X XX " [String]
+                                                                                                else
+                                                                                                    if [String]
+                                                                                                        binary = ObjectXXX
+                                                                                                            id num [ERROR:'num'NotFound]
+                                                                                                            int 20 [Int]
+                                                                                                    then
+                                                                                                        str " XX X  XX  X XX X  XX  X XX " [String]
+                                                                                                    else
+                                                                                                        if [String]
+                                                                                                            binary = ObjectXXX
+                                                                                                                id num [ERROR:'num'NotFound]
+                                                                                                                int 21 [Int]
+                                                                                                        then
+                                                                                                            str " XXXX   X    XX    X   XXXX " [String]
+                                                                                                        else
+                                                                                                            str "                         " [String]
+        method prompt : Bool
+            block [ObjectXXX]
+                let [ObjectXXX]
+                    vars
+                        String ans
+                    block [ObjectXXX]
+                        call out_string
+                            args
+                                str "Would you like to continue with the next generation? \n" [String]
+                        call out_string
+                            args
+                                str "Please use lowercase y or n for your answer [y]: " [String]
+                        assign ans [ERROR:'ans'NotFound]
+                            call in_string
+                        call out_string
+                            args
+                                str "\n" [String]
+                        if [Boolean]
+                            binary = ObjectXXX
+                                id ans [ERROR:'ans'NotFound]
+                                str "n" [String]
+                        then
+                            bool false [Boolean]
+                        else
+                            bool true [Boolean]
+        method prompt2 : Bool
+            let [ObjectXXX]
+                vars
+                    String ans
+                block [ObjectXXX]
+                    call out_string
+                        args
+                            str "\n\n" [String]
+                    call out_string
+                        args
+                            str "Would you like to choose a background pattern? \n" [String]
+                    call out_string
+                        args
+                            str "Please use lowercase y or n for your answer [n]: " [String]
+                    assign ans [ERROR:'ans'NotFound]
+                        call in_string
+                    if [Boolean]
+                        binary = ObjectXXX
+                            id ans [ERROR:'ans'NotFound]
+                            str "y" [String]
+                    then
+                        bool true [Boolean]
+                    else
+                        bool false [Boolean]
+    class Main : CellularAutomaton
+        field CellularAutomaton cells
+        method main : SELF_TYPE
+            block [ObjectXXX]
+                let [ObjectXXX]
+                    vars
+                        Bool continue
+                    let [ObjectXXX]
+                        vars
+                            String choice
+                        block [ObjectXXX]
+                            call out_string
+                                args
+                                    str "Welcome to the Game of Life.\n" [String]
+                            call out_string
+                                args
+                                    str "There are many initial states to choose from. \n" [String]
+                            while [Object]
+                                call prompt2
+                            loop
+                                block [ObjectXXX]
+                                    assign continue [ERROR:'continue'NotFound]
+                                        bool true [Boolean]
+                                    assign choice [ERROR:'choice'NotFound]
+                                        call option
+                                    assign cells [ERROR:'cells'NotFound]
+                                        call init
+                                            callee
+                                                new CellularAutomaton
+                                            args
+                                                id choice [ERROR:'choice'NotFound]
+                                    call print
+                                        callee
+                                            id cells [ERROR:'cells'NotFound]
+                                    while [Object]
+                                        id continue [ERROR:'continue'NotFound]
+                                    loop
+                                        if [ObjectXXX]
+                                            call prompt
+                                        then
+                                            block [ObjectXXX]
+                                                call evolve
+                                                    callee
+                                                        id cells [ERROR:'cells'NotFound]
+                                                call print
+                                                    callee
+                                                        id cells [ERROR:'cells'NotFound]
+                                        else
+                                            assign continue [ERROR:'continue'NotFound]
+                                                bool false [Boolean]
+                            id self [ERROR:'self'NotFound]

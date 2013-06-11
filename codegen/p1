@@ -1,0 +1,6 @@
+class Main inherits IO {
+
+   main(): SELF_TYPE {
+    7+9
+   };
+};
