@@ -246,11 +246,17 @@ public class LLVMAstPrinter {
 			// printTag("block", e);
 
 			// ps("{\n");
+			
+			String m_last ="";
 
 			for (Expr child : ((Block) e).getStatements()) {
-				print(child, indent + 1);
+				m_last = print(child, indent + 1);
 			}
-
+			
+			if(!m_last.equals(""))
+			return m_last;
+			else pl(";xx Bloque sin expr validas");
+			
 			// ps("\n}");
 		} else if (e instanceof WhileExpr) {
 			WhileExpr loop = (WhileExpr) e;

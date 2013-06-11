@@ -62,7 +62,7 @@ br label %v16
 v16:
 %v17 = phi i8** [%v18, %v14],[%v19, %v15]
 ;Dispatch arg load...
-%v20 = load i8** %NDE
+%v20 = load i8** %v17
 %v21 = call %IO* @IO_out_string(%IO* null, i8* %v20)
 %v22 = alloca %IO*
 store %IO* %v21, %IO** %v22

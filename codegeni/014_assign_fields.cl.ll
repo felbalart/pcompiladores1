@@ -17,18 +17,16 @@ declare i8* @String_substr(i8*, i32, i32 )
 ;xxVariable (field)
 ;xxVariable (field)
 ;xxVariable (field)
+;xxMethod def!
 define i32 @main() {
 ;xxFIELDS ON
 %v0 = alloca i8*
-%v0 = null
 ;xxFIELDS OFF
 ;xxFIELDS ON
 %v1 = alloca i32
-%v1 = null
 ;xxFIELDS OFF
 ;xxFIELDS ON
 %v2 = alloca i1
-%v2 = null
 ;xxFIELDS OFF
 ;xxBloq
 %v3 = alloca i8*
@@ -48,41 +46,59 @@ store i1 true, i1* %v7
 store i1 %v8, i1* %v2
 ;xxDispatch de:out_string
 ;xxIdExpr
+;Dispatch arg load...
 %v9 = load i8** %v0
-%v10 = call %IO* @IO_out_string(i8* %v9)
+%v10 = call %IO* @IO_out_string(%IO* null, i8* %v9)
+%v11 = alloca %IO*
+store %IO* %v10, %IO** %v11
 ;xxDispatch de:out_string
-%v11 = alloca i8*
-store i8* bitcast ( [2 x i8]* @.String.SLASHENE to i8* ), i8** %v11
-%v12 = load i8** %v11
-%v13 = call %IO* @IO_out_string(i8* %v12)
+%v12 = alloca i8*
+store i8* bitcast ( [2 x i8]* @.String.SLASHENE to i8* ), i8** %v12
+;Dispatch arg load...
+%v13 = load i8** %v12
+%v14 = call %IO* @IO_out_string(%IO* null, i8* %v13)
+%v15 = alloca %IO*
+store %IO* %v14, %IO** %v15
 ;xxDispatch de:out_int
 ;xxIdExpr
-%v14 = load i32* %v1
-%v15 = call %IO* @IO_out_int(i32 %v14)
+;Dispatch arg load...
+%v16 = load i32* %v1
+%v17 = call %IO* @IO_out_int(%IO* null, i32 %v16)
+%v18 = alloca %IO*
+store %IO* %v17, %IO** %v18
 ;xxDispatch de:out_string
-%v16 = alloca i8*
-store i8* bitcast ( [2 x i8]* @.String.SLASHENE to i8* ), i8** %v16
-%v17 = load i8** %v16
-%v18 = call %IO* @IO_out_string(i8* %v17)
+%v19 = alloca i8*
+store i8* bitcast ( [2 x i8]* @.String.SLASHENE to i8* ), i8** %v19
+;Dispatch arg load...
+%v20 = load i8** %v19
+%v21 = call %IO* @IO_out_string(%IO* null, i8* %v20)
+%v22 = alloca %IO*
+store %IO* %v21, %IO** %v22
 ;xxIFEX
 ;xxIdExpr
-%v19 = load i1* %v2
-br i1 %v19, label %v20, label %v21
-v20:
+%v23 = load i1* %v2
+br i1 %v23, label %v24, label %v25
+v24:
 ;xxDispatch de:out_string
-%v24 = alloca i8*
-store i8* bitcast ( [5 x i8]* @.String.true to i8* ), i8** %v24
-%v25 = load i8** %v24
-%v26 = call %IO* @IO_out_string(i8* %v25)
-br label %v22
-v21:
+%v28 = alloca i8*
+store i8* bitcast ( [5 x i8]* @.String.true to i8* ), i8** %v28
+;Dispatch arg load...
+%v29 = load i8** %v28
+%v30 = call %IO* @IO_out_string(%IO* null, i8* %v29)
+%v31 = alloca %IO*
+store %IO* %v30, %IO** %v31
+br label %v26
+v25:
 ;xxDispatch de:out_string
-%v27 = alloca i8*
-store i8* bitcast ( [6 x i8]* @.String.false to i8* ), i8** %v27
-%v28 = load i8** %v27
-%v29 = call %IO* @IO_out_string(i8* %v28)
-br label %v22
-v22:
-%v23 = phi %IO* [%v26, %v20],[%v29, %v21]
+%v32 = alloca i8*
+store i8* bitcast ( [6 x i8]* @.String.false to i8* ), i8** %v32
+;Dispatch arg load...
+%v33 = load i8** %v32
+%v34 = call %IO* @IO_out_string(%IO* null, i8* %v33)
+%v35 = alloca %IO*
+store %IO* %v34, %IO** %v35
+br label %v26
+v26:
+%v27 = phi %IO** [%v31, %v24],[%v35, %v25]
 ret i32 0
 }

@@ -17,7 +17,6 @@ declare i8* @String_substr(i8*, i32, i32 )
 define i32 @main() {
 ;xxFIELDS ON
 %v0 = alloca i8*
-%v0 = null
 ;xxFIELDS OFF
 ;xxBloq
 ;xxDispatch de:out_string
