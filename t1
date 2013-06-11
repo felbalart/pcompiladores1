@@ -1,5 +1,0 @@
-class Main{
-   main(): SELF_TYPE {
-	2+2
-   };
-};

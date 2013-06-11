@@ -1,9 +1,0 @@
-class Main : Object
-    fields
-    methods
-        SELF_TYPE main
-            body
-                scope
-                    A a
-                    B b
-

@@ -1,5 +1,0 @@
-class Main : Object
-    fields
-        Int finn
-    methods
-

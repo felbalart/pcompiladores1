@@ -1,4 +1,0 @@
-program
-    class Main
-        field Object v
-            int 0 [Int]
