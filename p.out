@@ -1,0 +1,9 @@
+program
+    class Main : IO
+        method main : Object
+            block [String]
+                call concat [String]
+                    callee
+                        str "d__<" [String]
+                    args
+                        str ">--b" [String]

@@ -1,0 +1,9 @@
+program
+    class Main : IO
+        field Int size
+            int 38 [Int]
+        method main : Object
+            block [Main]
+                call out_int [Main]
+                    args
+                        id size [Int]

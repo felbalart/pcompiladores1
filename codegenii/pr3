@@ -1,0 +1,14 @@
+class Program {
+
+    iostream : IO <- new IO;
+    codes : Program;
+
+
+    main() : IO {
+
+        iostream.out_string("baa")
+
+};
+
+  
+};

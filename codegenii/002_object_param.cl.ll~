@@ -1,0 +1,44 @@
+%Object = type { i8* }
+%IO = type { i8* }
+%Main = type { i8* }
+%Program = type { %Brocoli}
+%Brocoli = type { i8* }
+declare %Object* @Object_abort(%Object*)
+declare i8* @Object_type_name(%Object*)
+declare %IO @IO_out_string(%IO*, i8*)
+declare %IO @IO_out_int(%IO*, i32 )
+declare i8* @IO_in_string(%IO*)
+declare i32 @IO_in_int(%IO*)
+declare i32 @String_length(i8*)
+declare i8* @String_concat(i8*, i8*)
+declare i8* @String_substr(i8*, i32, i32 )
+@.String.WhatSPACEaSPACEterribleSPACEnightSPACEtoSPACEbeSPACEcursed33SLASHENE = constant [37 x i8] c"What a terrible night to be cursed!\0A\00"
+@.String.LaSPACEsuperficieSPACEesSPACE = constant [18 x i8] c"La superficie es \00"
+
+define i32 @main() {
+
+%elio = alloca %IO
+;%elbro = alloca %Brocoli
+
+
+
+%punt_s = alloca i8*
+store i8* bitcast ( [18 x i8]* @.String.LaSPACEsuperficieSPACEesSPACE to i8* ), i8** %punt_s
+
+;%objbro = bitcast i32* %nump to %Object*
+;%nump = alloca i32
+;store i32 17, i32* %nump
+
+
+
+%objbro = bitcast i8** %punt_s to %Object*
+
+%v3 = call i8* @Object_type_name(%Object* %objbro)
+
+tail call %IO @IO_out_string(%IO* %elio,i8* %v3)
+
+
+ret i32 0
+}
+
+

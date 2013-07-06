@@ -1,0 +1,7 @@
+class Program {
+
+
+	main() : SELF_TYPE {
+		self.type_name()
+	};
+};

@@ -1,0 +1,15 @@
+class Program {
+
+	iostream : IO <- new IO;
+
+
+	main() : Object {
+		freefall(1)
+	};
+
+	freefall(time: Int) : IO {
+iostream.out_int(time)
+
+
+	};
+};

@@ -1,0 +1,12 @@
+class Main inherits IO {
+    
+    result : Int;
+    a : Int;
+
+    main() : Object {{
+             a <- 392;
+        out_int(32 + a); -- 424
+        out_string("\n");
+     
+    }};
+};

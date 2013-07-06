@@ -1,0 +1,25 @@
+class Main inherits IO {
+
+
+    endpoint : String;
+    iostream : IO <- new IO;
+
+    open(net : Int, remote : String) : IO{
+
+       { 
+	endpoint <- remote;
+	iostream.out_string(endpoint);
+        }
+    };
+
+
+
+    main() : IO {
+        open(2,"wena")        
+
+    };
+
+};
+
+
+ 

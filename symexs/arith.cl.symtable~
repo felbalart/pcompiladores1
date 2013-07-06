@@ -1,0 +1,162 @@
+class A
+    fields
+        Int var
+    methods
+        Int value
+            body
+                    SELF_TYPE set_var
+            arguments
+                Int num
+            body
+                                                                    SELF_TYPE method1
+            arguments
+                Int num
+            body
+                    B method2
+            arguments
+                Int num1
+                Int num2
+            body
+                            scope
+                    Int x
+        C method3
+            arguments
+                Int num
+            body
+                            scope
+                    Int x
+        D method4
+            arguments
+                Int num1
+                Int num2
+            body
+                                                                            scope
+                    Int x
+                            scope
+                    Int x
+        E method5
+            arguments
+                Int num
+            body
+                            scope
+                    Int x
+class B : A
+    fields
+    methods
+        E method5
+            arguments
+                Int num
+            body
+                            scope
+                    Int x
+class C : B
+    fields
+    methods
+        A method6
+            arguments
+                Int num
+            body
+                            scope
+                    Int x
+        E method5
+            arguments
+                Int num
+            body
+                            scope
+                    Int x
+class D : B
+    fields
+    methods
+        Bool method7
+            arguments
+                Int num
+            body
+                            scope
+                    Int x
+class E : D
+    fields
+    methods
+        A method6
+            arguments
+                Int num
+            body
+                            scope
+                    Int x
+class A2I
+    fields
+    methods
+        Int c2i
+            arguments
+                String char
+            body
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            String i2c
+            arguments
+                Int i
+            body
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Int a2i
+            arguments
+                String s
+            body
+                                                                                                                                                                                                                                                                                                                                                                                                        Int a2i_aux
+            arguments
+                String s
+            body
+                            scope
+                    Int int
+        String i2a
+            arguments
+                Int i
+            body
+                                                                                                                                                                                                                    String i2a_aux
+            arguments
+                Int i
+            body
+                                                                                        scope
+                    Int next
+class Main : IO
+    fields
+        String char
+        A avar
+        A a_var
+        Bool flag
+    methods
+        String menu
+            body
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    String prompt
+            body
+                                                                                                    Int get_int
+            body
+                                                scope
+                        A2I z
+        Bool is_even
+            arguments
+                Int num
+            body
+                            scope
+                    Int x
+        SELF_TYPE class_type
+            arguments
+                A var
+            body
+            instanceof
+                                case A a
+                                                        case B b
+                                                        case C c
+                                                        case D d
+                                                        case E e
+                                                        case Object o
+                                                SELF_TYPE print
+            arguments
+                A var
+            body
+                            scope
+                    A2I z
+        Object main
+            body
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        instanceof
+                                                case C c
+                                                                                                            case A a
+                                                                                                            case Object o
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            scope
+                            A x
+                                                                                                                                                                                                                                                                                                            
