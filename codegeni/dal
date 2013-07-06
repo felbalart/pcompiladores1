@@ -1,6 +1,0 @@
- #!/bin/bash         
-
-ant codegen  -Dcool.source=codegeni/$1
-
-llvm-link $1.ll coolstd.ll | lli
-

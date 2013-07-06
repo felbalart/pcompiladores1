@@ -1,7 +1,0 @@
-2:3 Expected Main, received Int
-program
-    class Main : IO
-        method main : SELF_TYPE
-            binary + [Int]
-                int 2 [Int]
-                int 2 [Int]

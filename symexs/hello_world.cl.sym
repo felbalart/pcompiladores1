@@ -1,6 +1,0 @@
-class Main : IO
-    fields
-    methods
-        SELF_TYPE main
-            body
-

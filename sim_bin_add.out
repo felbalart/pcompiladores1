@@ -1,8 +1,0 @@
-program
-    class Main : IO
-        field Int result
-        field Int a
-        method main : Int
-            block [Int]
-                assign a [Int]
-                    int 392 [Int]
